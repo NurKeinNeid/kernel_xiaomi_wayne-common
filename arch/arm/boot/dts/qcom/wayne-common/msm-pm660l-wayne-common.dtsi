@@ -47,3 +47,7 @@
 &lcdb_ncp_vreg {
 	qcom,ncp-ilim-ma = <260>;
 };
+
+&red_led {
+	qcom,use-blink;
+};
