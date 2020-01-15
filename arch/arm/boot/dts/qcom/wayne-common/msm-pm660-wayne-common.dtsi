@@ -1,0 +1,44 @@
+&spmi_bus {
+	qcom,pm660@0 {
+		qcom,power-on@800 {
+			qcom,pon_1 {
+				qcom,support-reset = <1>;
+				qcom,s1-timer = <4480>;
+				qcom,s2-timer = <2000>;
+				qcom,s2-type = <7>;
+			};
+
+			qcom,pon_3 {
+				qcom,pon-type = <3>;
+				qcom,pull-up = <1>;
+				qcom,support-reset = <1>;
+				qcom,s1-timer = <4480>;
+				qcom,s2-timer = <1000>;
+				qcom,s2-type = <1>;
+			};
+		};
+	};
+};
+
+&pm660_charger {
+	qcom,thermal-mitigation
+			= <2900000 2000000 1800000 1500000 1000000 500000 100000>;
+};
+
+&pm660_haptics {
+	qcom,play-mode = "buffer";
+	qcom,vmax-mv = <2204>;
+	qcom,wave-shape = "sine";
+	qcom,wave-play-rate-us = <4878>;
+	qcom,int-pwm-freq-khz = <253>;
+	qcom,brake-pattern = [02 02 01 00];
+	qcom,wave-samples = [3e 3e 3e 00 00 00 00 00];
+	qcom,wave-samples-two = [3e 3e 3e 3e 00 00 00 00];
+	qcom,wave-samples-three = [3e 3e 3e 3e 3e 00 00 00];
+	qcom,wave-rep-cnt = <1>;
+	qcom,wave-samp-rep-cnt = <1>;
+	qcom,lra-high-z = "opt1";
+	qcom,lra-auto-res-mode = "none";
+	/delete-property/ qcom,correct-lra-drive-freq;
+	qcom,lra-hw-auto-resonance;
+};
